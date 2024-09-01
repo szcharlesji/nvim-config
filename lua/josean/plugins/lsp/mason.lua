@@ -33,7 +33,6 @@ return {
                 "tailwindcss",
                 "lua_ls",
                 "graphql",
-                "pyright",
             },
         })
 
