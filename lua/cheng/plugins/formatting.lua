@@ -2,11 +2,11 @@ return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-        local sui_move_analyzer = {
-            command = "/Users/chengji/.cargo/bin/sui-move-analyzer",
-            args = { "format", "--stdin" },
-            stdin = true,
-        }
+        -- local sui_move_analyzer = {
+        --     command = "/Users/chengji/.cargo/bin/sui-move-analyzer",
+        --     args = { "format", "--stdin" },
+        --     stdin = true,
+        -- }
 
         local conform = require("conform")
         conform.setup({
@@ -23,7 +23,7 @@ return {
                 json = { "prettier" },
                 yaml = { "prettier" },
                 markdown = { "prettier" },
-                move = { "sui_move_analyzer" },
+                move = { "move_analyzer" },
                 graphql = { "prettier" },
                 liquid = { "prettier" },
                 lua = { "stylua" },
@@ -38,7 +38,7 @@ return {
 
             -- Configure formatters
             formatters = {
-                sui_move_analyzer = sui_move_analyzer,
+                -- sui_move_analyzer = sui_move_analyzer,
                 prettier = {
                     prepend_args = { "--tab-width", "4", "--use-tabs", "false" },
                 },
