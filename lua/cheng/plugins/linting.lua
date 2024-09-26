@@ -52,11 +52,11 @@ return {
             end,
         })
 
-        vim.keymap.set("n", "<leader>l", function()
-            local bufnr = vim.api.nvim_get_current_buf()
-            local filepath = vim.api.nvim_buf_get_name(bufnr)
-            print("Manually linting file: " .. filepath)
-            lint.try_lint()
-        end, { desc = "Trigger linting for current file" })
+        -- vim.keymap.set("n", "<leader>l", function()
+        --     local bufnr = vim.api.nvim_get_current_buf()
+        --     local filepath = vim.api.nvim_buf_get_name(bufnr)
+        --     print("Manually linting file: " .. filepath)
+        --     lint.try_lint()
+        -- end, { desc = "Trigger linting for current file" })
     end,
 }

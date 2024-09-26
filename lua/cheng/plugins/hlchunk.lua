@@ -37,7 +37,7 @@ return {
                     -- "┆",
                     -- "┊",
                 },
-                delay = 50,
+                delay = 80,
                 -- filter_list = {
                 --     function(v)
                 --         return v.level ~= 1
