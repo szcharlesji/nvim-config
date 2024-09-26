@@ -10,7 +10,8 @@ return {
         local treesitter = require("nvim-treesitter.configs")
 
         -- configure treesitter
-        treesitter.setup({ -- enable syntax highlighting
+        treesitter.setup({
+            -- enable syntax highlighting
             highlight = {
                 enable = true,
             },
@@ -44,6 +45,11 @@ return {
                 "c",
                 "python",
             },
+            -- Add the missing fields
+            modules = {},
+            sync_install = false,
+            ignore_install = {},
+            auto_install = true,
 
             incremental_selection = {
                 enable = true,

@@ -9,34 +9,45 @@ return {
             typescript = { "eslint_d" },
             javascriptreact = { "eslint_d" },
             typescriptreact = { "eslint_d" },
-            svelte = { "eslint_d" },
             python = { "pylint" },
         }
-        local root_dir = vim.fn.getcwd()
-        local eslint_config_path = root_dir .. "/eslint.config.js"
 
-        lint.linters.eslint_d.args = {
-            "--no-warn-ignored",
-            "--config",
-            eslint_config_path,
-            "--format",
-            "json",
-            "--stdin",
-            "--stdin-filename",
-            function()
-                return vim.api.nvim_buf_get_name(0)
-            end,
-        }
+        local function get_eslint_config_path()
+            local root_dir = vim.fn.getcwd()
+            local eslint_config_js = root_dir .. "/eslint.config.js"
+            local eslintrc_json = root_dir .. "/.eslintrc.json"
 
-        lint.linters.eslint_d.cwd = root_dir
+            if vim.fn.filereadable(eslint_config_js) == 1 then
+                return eslint_config_js
+            elseif vim.fn.filereadable(eslintrc_json) == 1 then
+                return eslintrc_json
+            else
+                return nil
+            end
+        end
+
+        local eslint_config_path = get_eslint_config_path()
+
+        if eslint_config_path then
+            lint.linters.eslint_d.args = {
+                "--format",
+                "json",
+                "--stdin",
+                "--stdin-filename",
+                function()
+                    return vim.api.nvim_buf_get_name(0)
+                end,
+            }
+        else
+            print("No ESLint config file found. Using default configuration.")
+        end
+
+        lint.linters.eslint_d.cwd = vim.fn.getcwd()
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
             group = lint_augroup,
             callback = function()
-                local bufnr = vim.api.nvim_get_current_buf()
-                local filepath = vim.api.nvim_buf_get_name(bufnr)
-                -- print("Linting file: " .. filepath)
                 lint.try_lint()
             end,
         })
