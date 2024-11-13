@@ -21,3 +21,9 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+-- Obsidian
+keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Open backlinks" })
+keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
+keymap.set("n", "<leader>oo", "<cmd>ObsidianFollowLink<CR>", { desc = "Follow Link under Cursor" })
+keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Tags" })

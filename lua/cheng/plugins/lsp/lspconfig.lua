@@ -131,11 +131,19 @@ return {
                 })
             end,
 
+            ["denols"] = function()
+                lspconfig["denols"].setup({
+                    capabilities = capabilities,
+                    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+                })
+            end,
+
             ["ts_ls"] = function()
                 lspconfig["ts_ls"].setup({
                     capabilities = capabilities,
                     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-                    root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+                    root_dir = lspconfig.util.root_pattern("package.json"),
+                    single_file_support = false,
                     settings = {
                         javascript = {
                             inlayHints = {
@@ -171,6 +179,18 @@ return {
                     cmd = { "sui-move-analyzer" },
                     filetypes = { "move" }, -- specify the file types handled by the language server
                     root_dir = lspconfig.util.root_pattern("Move.toml", "source"),
+                })
+            end,
+
+            ["vacuum"] = function()
+                lspconfig["vacuum"].setup({
+                    capabilities = capabilities,
+                    filetypes = { "yaml", "json" },
+                    settings = {
+                        vacuum = {
+                            -- You can add specific Vaccum settings here if needed
+                        },
+                    },
                 })
             end,
         })
