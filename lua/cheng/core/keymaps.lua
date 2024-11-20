@@ -27,3 +27,6 @@ keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Open backl
 keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
 keymap.set("n", "<leader>oo", "<cmd>ObsidianFollowLink<CR>", { desc = "Follow Link under Cursor" })
 keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Tags" })
+
+keymap.set("t", "<Esc>", "<C-\\><C-n><C-o>") -- Exit terminal mode
+keymap.set("n", "<leader>tm", ":terminal<CR>a") -- Open terminal
