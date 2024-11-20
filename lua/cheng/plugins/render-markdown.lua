@@ -1,7 +1,7 @@
 return {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {},
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+    event = "VeryLazy",
     require("render-markdown").setup({
         enabled = true,
         bullet = {

@@ -44,9 +44,9 @@ opt.scrolloff = 12
 opt.showmatch = true
 
 -- Autocommand to open NvimTree when Neovim starts
-vim.api.nvim_create_autocmd("VimEnter", {
-    pattern = "*",
-    command = "NvimTreeOpen",
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     pattern = "*",
+--     command = "NvimTreeOpen",
+-- })
 
 vim.lsp.set_log_level("error")
