@@ -9,6 +9,9 @@ return {
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
+        local todo_comments = require("todo-comments")
+
+        todo_comments.setup()
 
         telescope.setup({
             defaults = {

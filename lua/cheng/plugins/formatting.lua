@@ -16,9 +16,9 @@ return {
                 json = { "prettier" },
                 yaml = { "prettier" },
                 markdown = { "prettier" },
-                move = { "move_analyzer" },
                 lua = { "stylua" },
                 python = { "black" },
+                rust = { "rust-analyzer" },
             },
 
             format_on_save = {
@@ -43,6 +43,9 @@ return {
                 },
                 black = {
                     prepend_args = { "--line-length", "88", "--skip-string-normalization" },
+                },
+                rust_analyzer = {
+                    prepend_args = {},
                 },
             },
         })
