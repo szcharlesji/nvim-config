@@ -131,12 +131,12 @@ return {
                 })
             end,
 
-            ["denols"] = function()
-                lspconfig["denols"].setup({
-                    capabilities = capabilities,
-                    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-                })
-            end,
+            -- ["denols"] = function()
+            --     lspconfig["denols"].setup({
+            --         capabilities = capabilities,
+            --         root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+            --     })
+            -- end,
 
             ["ts_ls"] = function()
                 lspconfig["ts_ls"].setup({
@@ -168,17 +168,6 @@ return {
                             },
                         },
                     },
-                })
-            end,
-
-            ["move_analyzer"] = function()
-                -- configure move-analyzer server
-                lspconfig["move_analyzer"].setup({
-                    -- on_attach =
-                    capabilities = capabilities,
-                    cmd = { "sui-move-analyzer" },
-                    filetypes = { "move" }, -- specify the file types handled by the language server
-                    root_dir = lspconfig.util.root_pattern("Move.toml", "source"),
                 })
             end,
 
