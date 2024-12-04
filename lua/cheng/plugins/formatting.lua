@@ -19,6 +19,7 @@ return {
                 lua = { "stylua" },
                 python = { "black" },
                 rust = { "rust-analyzer" },
+                move = { "move-analyzer" },
             },
 
             format_on_save = {
@@ -45,6 +46,9 @@ return {
                     prepend_args = { "--line-length", "88", "--skip-string-normalization" },
                 },
                 rust_analyzer = {
+                    prepend_args = {},
+                },
+                move_analyzer = {
                     prepend_args = {},
                 },
             },

@@ -12,6 +12,10 @@ return {
                 width = 30,
                 relativenumber = true,
             },
+            -- sort = {
+            --     sorter = "modification_time",
+            -- },
+
             -- change folder arrow icons
             renderer = {
                 indent_markers = {
