@@ -21,9 +21,10 @@ return {
                     "build",
                     "dist",
                     "yarn.lock",
+                    "bun.lockb",
                 },
                 hidden = true,
-                no_ignore = true,
+                no_ignore = false,
                 mappings = {
                     i = {
                         ["<C-k>"] = actions.move_selection_previous, -- move to prev result

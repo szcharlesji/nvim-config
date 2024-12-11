@@ -31,8 +31,8 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+opt.splitright = true
+opt.splitbelow = true
 
 -- turn off swapfile
 opt.swapfile = false
@@ -42,11 +42,5 @@ opt.scrolloff = 12
 
 -- show matching brackets
 opt.showmatch = true
-
--- Autocommand to open NvimTree when Neovim starts
--- vim.api.nvim_create_autocmd("VimEnter", {
---     pattern = "*",
---     command = "NvimTreeOpen",
--- })
 
 vim.lsp.set_log_level("error")
