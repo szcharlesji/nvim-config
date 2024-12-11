@@ -4,13 +4,7 @@ return {
     lazy = true,
     opts = {
         provider = "copilot",
-        auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-        claude = {
-            endpoint = "https://api.anthropic.com",
-            model = "claude-3-5-sonnet-20240620",
-            temperature = 0,
-            max_tokens = 4096,
-        },
+        auto_suggestions_provider = "copilot",
     },
     build = "make",
     dependencies = {
@@ -30,8 +24,6 @@ return {
                     drag_and_drop = {
                         insert_mode = true,
                     },
-                    -- required for Windows users
-                    use_absolute_path = true,
                 },
             },
         },

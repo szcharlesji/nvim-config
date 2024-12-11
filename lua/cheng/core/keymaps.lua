@@ -1,14 +1,10 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap -- for conciseness
+local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-
--- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
@@ -27,6 +23,3 @@ keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Open backl
 keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
 keymap.set("n", "<leader>oo", "<cmd>ObsidianFollowLink<CR>", { desc = "Follow Link under Cursor" })
 keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Tags" })
-
-keymap.set("t", "<Esc>", "<C-\\><C-n><C-o>") -- Exit terminal mode
-keymap.set("n", "<leader>tm", ":terminal<CR>a") -- Open terminal
