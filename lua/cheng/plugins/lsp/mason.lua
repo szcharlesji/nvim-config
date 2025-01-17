@@ -31,6 +31,7 @@ return {
                 "tailwindcss",
                 "lua_ls",
             },
+            automatic_installation = true,
         })
 
         mason_tool_installer.setup({

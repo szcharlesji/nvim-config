@@ -94,6 +94,13 @@ return {
                 })
             end,
 
+            ["tailwindcss"] = function()
+                lspconfig["tailwindcss"].setup({
+                    capabilities = capabilities,
+                    filetypes = { "typescriptreact", "javascriptreact" },
+                })
+            end,
+
             ["lua_ls"] = function()
                 -- configure lua server (with special settings)
                 lspconfig["lua_ls"].setup({
@@ -130,13 +137,6 @@ return {
                     },
                 })
             end,
-
-            -- ["denols"] = function()
-            --     lspconfig["denols"].setup({
-            --         capabilities = capabilities,
-            --         root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-            --     })
-            -- end,
 
             ["ts_ls"] = function()
                 lspconfig["ts_ls"].setup({
