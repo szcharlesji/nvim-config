@@ -13,7 +13,7 @@ return {
         "saadparwaiz1/cmp_luasnip", -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
-        -- "bullets-vim/bullets.vim", -- for bullets in markdown
+        "bullets-vim/bullets.vim", -- for bullets in markdown
     },
     config = function()
         local cmp = require("cmp")
