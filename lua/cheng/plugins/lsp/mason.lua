@@ -30,14 +30,17 @@ return {
             ensure_installed = {
                 "tailwindcss",
                 "lua_ls",
+                "ts_ls",
+                "pyright",
+                "rust_analyzer",
             },
             automatic_installation = true,
         })
 
         mason_tool_installer.setup({
             ensure_installed = {
-                "prettier", -- prettier formatter
-                "stylua", -- lua formatter
+                "prettier",
+                "stylua",
                 "eslint_d",
             },
         })
