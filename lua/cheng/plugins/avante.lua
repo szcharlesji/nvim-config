@@ -7,7 +7,27 @@ return {
         -- auto_suggestions_provider = "copilot",
         copilot = {
             endpoint = "https://api.githubcopilot.com",
-            -- model = "claude-3.5-sonnet",
+        },
+        openai = {
+            hide_in_model_selector = true,
+        },
+        claude = {
+            hide_in_model_selector = true,
+        },
+        gemini = {
+            hide_in_model_selector = true,
+        },
+        vertex = {
+            hide_in_model_selector = true,
+        },
+        vertex_claude = {
+            hide_in_model_selector = true,
+        },
+        cohere = {
+            hide_in_model_selector = true,
+        },
+        bedrock = {
+            hide_in_model_selector = true,
         },
         vendors = {
             copilot_claude = {
