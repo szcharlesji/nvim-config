@@ -29,6 +29,15 @@ return {
         bedrock = {
             hide_in_model_selector = true,
         },
+        ["claude-haiku"] = {
+            hide_in_model_selector = true,
+        },
+        ["claude-opus"] = {
+            hide_in_model_selector = true,
+        },
+        ["openai-gpt-4o-mini"] = {
+            hide_in_model_selector = true,
+        },
         vendors = {
             copilot_claude = {
                 __inherited_from = "copilot",
@@ -39,14 +48,6 @@ return {
                 model = "claude-3.7-sonnet-thought",
                 temperature = 1,
                 max_tokens = 20000,
-            },
-            copilot_o1 = {
-                __inherited_from = "copilot",
-                model = "o1",
-            },
-            copilot_o3_mini = {
-                __inherited_from = "copilot",
-                model = "o3-mini",
             },
             copilot_gemini = {
                 __inherited_from = "copilot",
