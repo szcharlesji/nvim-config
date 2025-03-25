@@ -8,6 +8,7 @@ return {
 
         -- configure treesitter
         treesitter.setup({
+
             -- enable syntax highlighting
             highlight = {
                 enable = true,

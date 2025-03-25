@@ -110,6 +110,13 @@ return {
                 })
             end,
 
+            ["prisma"] = function()
+                lspconfig["prisma"].setup({
+                    capabilities = capabilities,
+                    filetypes = { "prisma" },
+                })
+            end,
+
             ["tailwindcss"] = function()
                 lspconfig["tailwindcss"].setup({
                     capabilities = capabilities,

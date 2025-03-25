@@ -2,6 +2,19 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
+-- Add filetype detection for .env.* files
+vim.filetype.add({
+    extension = {
+        env = "sh",
+    },
+    filename = {
+        [".env"] = "sh",
+    },
+    pattern = {
+        ["%.env%.[%w_.-]+"] = "sh",
+    },
+})
+
 opt.relativenumber = true
 opt.number = true
 opt.conceallevel = 1
