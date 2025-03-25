@@ -15,6 +15,13 @@ return {
                     name = "Move",
                 },
             },
+            override_by_filename = {
+                [".env.production"] = {
+                    icon = "",
+                    color = "#FBF700",
+                    name = "EnvFile",
+                },
+            },
         })
     end,
 }

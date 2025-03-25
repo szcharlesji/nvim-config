@@ -31,7 +31,7 @@ return {
             -- Configure formatters
             formatters = {
                 prettier = {
-                    prepend_args = { "--tab-width", "4", "--use-tabs", "false" },
+                    -- prepend_args = { "--tab-width", "4", "--use-tabs", "false" },
                 },
                 ["clang-format"] = {
                     prepend_args = {
