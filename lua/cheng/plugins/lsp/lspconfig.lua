@@ -110,8 +110,8 @@ return {
                 })
             end,
 
-            ["prisma"] = function()
-                lspconfig["prisma"].setup({
+            ["prismals"] = function()
+                lspconfig["prismals"].setup({
                     capabilities = capabilities,
                     filetypes = { "prisma" },
                 })
@@ -186,6 +186,41 @@ return {
                                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
                                 includeInlayPropertyDeclarationTypeHints = true,
                                 includeInlayVariableTypeHints = true,
+                            },
+                        },
+                    },
+                })
+            end,
+
+            ["astro"] = function()
+                lspconfig["astro"].setup({
+                    capabilities = capabilities,
+                    filetypes = { "astro" },
+                })
+            end,
+
+            ["gopls"] = function()
+                lspconfig["gopls"].setup({
+                    capabilities = capabilities,
+                    settings = {
+                        gopls = {
+                            analyses = {
+                                unusedparams = true,
+                                unreachable = true,
+                            },
+                            staticcheck = true,
+                        },
+                    },
+                })
+            end,
+
+            ["rust_analyzer"] = function()
+                lspconfig["rust_analyzer"].setup({
+                    capabilities = capabilities,
+                    settings = {
+                        ["rust-analyzer"] = {
+                            checkOnSave = {
+                                command = "clippy",
                             },
                         },
                     },

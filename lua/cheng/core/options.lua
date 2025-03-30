@@ -20,11 +20,11 @@ opt.number = true
 opt.conceallevel = 1
 
 -- tabs & indentation
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
-opt.showtabline = 4 -- always show tabs
+opt.showtabline = 2 -- always show tabs
 opt.wrap = false
 
 -- search settings
