@@ -1,21 +1,21 @@
 return {
-    "akinsho/bufferline.nvim",
-    branch = "main",
-    version = "*",
-    opts = {
-        options = {
-            mode = "tabs",
-            numbers = "ordinal",
-            separator_style = "thin",
-            hover = {
-                enabled = true,
-                delay = 200,
-                reveal = { "close" },
-            },
-            indicator = {
-                icon = "▎", -- this should be omitted if indicator style is not 'icon'
-                style = "icon",
-            },
-        },
+  "akinsho/bufferline.nvim",
+  branch = "main",
+  version = "*",
+  opts = {
+    options = {
+      mode = "tabs",
+      numbers = "ordinal",
+      separator_style = "thin",
+      hover = {
+        enabled = true,
+        delay = 200,
+        reveal = { "close" },
+      },
+      indicator = {
+        icon = "▎", -- this should be omitted if indicator style is not 'icon'
+        style = "icon",
+      },
     },
+  },
 }
