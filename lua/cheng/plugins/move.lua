@@ -1,4 +1,4 @@
 return {
-    "yanganto/move.vim",
-    branch = "sui-move",
+  "yanganto/move.vim",
+  branch = "sui-move",
 }
