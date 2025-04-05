@@ -202,6 +202,7 @@ return {
       ["gopls"] = function()
         lspconfig["gopls"].setup({
           capabilities = capabilities,
+          filetypes = { "go" },
           settings = {
             gopls = {
               analyses = {

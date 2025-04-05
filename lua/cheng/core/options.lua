@@ -51,7 +51,7 @@ opt.splitbelow = true
 opt.swapfile = false
 
 -- scroll offset
-opt.scrolloff = 12
+opt.scrolloff = 8
 
 -- show matching brackets
 opt.showmatch = true
