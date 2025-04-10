@@ -14,6 +14,12 @@ return {
     claude = {
       hide_in_model_selector = true,
     },
+    aihubmix = {
+      hide_in_model_selector = true,
+    },
+    ["aihubmix-claude"] = {
+      hide_in_model_selector = true,
+    },
     gemini = {
       hide_in_model_selector = true,
     },

@@ -1,23 +1,7 @@
 return {
-  "folke/tokyonight.nvim",
-  priority = 1000,
+  "projekt0n/github-nvim-theme",
+  name = "github-theme",
   config = function()
-    local transparent = true
-
-    local border = "#E9AD5B"
-
-    require("tokyonight").setup({
-      style = "night",
-      transparent = transparent,
-      styles = {
-        sidebars = transparent and "transparent" or "dark",
-        floats = transparent and "transparent" or "dark",
-      },
-      on_colors = function(colors)
-        colors.border = border
-      end,
-    })
-
-    vim.cmd("colorscheme tokyonight")
+    vim.cmd("colorscheme github_dark_default")
   end,
 }
