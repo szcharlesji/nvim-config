@@ -23,3 +23,7 @@ keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Open backl
 keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })
 keymap.set("n", "<leader>oo", "<cmd>ObsidianFollowLink<CR>", { desc = "Follow Link under Cursor" })
 keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Tags" })
+
+-- Move lines
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
