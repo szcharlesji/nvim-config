@@ -9,38 +9,38 @@ return {
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
-    require("lspconfig.configs").sui = {
-      default_config = {
-        cmd = { "move-analyzer" },
-        filetypes = { "move" },
-        root_dir = require("lspconfig.util").root_pattern("Move.toml", ".git"),
-        settings = {},
-        capabilities = vim.tbl_deep_extend("force", require("cmp_nvim_lsp").default_capabilities(), {
-          textDocumentSync = {
-            openClose = true,
-            change = 2, -- Incremental
-          },
-          completionProvider = {
-            resolveProvider = true,
-            triggerCharacters = { ".", ":" },
-          },
-          hoverProvider = true,
-          signatureHelpProvider = {
-            triggerCharacters = { "(", "," },
-          },
-          definitionProvider = true,
-          referencesProvider = true,
-          workspaceSymbolProvider = true,
-          implementationProvider = true,
-          documentFormattingProvider = true,
-          documentRangeFormattingProvider = true,
-          documentHighlightProvider = true,
-          documentSymbolProvider = true,
-          codeActionProvider = true,
-          renameProvider = true,
-        }),
-      },
-    }
+    -- require("lspconfig.configs").sui = {
+    --   default_config = {
+    --     cmd = { "move-analyzer" },
+    --     filetypes = { "move" },
+    --     root_dir = require("lspconfig.util").root_pattern("Move.toml", ".git"),
+    --     settings = {},
+    --     capabilities = vim.tbl_deep_extend("force", require("cmp_nvim_lsp").default_capabilities(), {
+    --       textDocumentSync = {
+    --         openClose = true,
+    --         change = 2, -- Incremental
+    --       },
+    --       completionProvider = {
+    --         resolveProvider = true,
+    --         triggerCharacters = { ".", ":" },
+    --       },
+    --       hoverProvider = true,
+    --       signatureHelpProvider = {
+    --         triggerCharacters = { "(", "," },
+    --       },
+    --       definitionProvider = true,
+    --       referencesProvider = true,
+    --       workspaceSymbolProvider = true,
+    --       implementationProvider = true,
+    --       documentFormattingProvider = true,
+    --       documentRangeFormattingProvider = true,
+    --       documentHighlightProvider = true,
+    --       documentSymbolProvider = true,
+    --       codeActionProvider = true,
+    --       renameProvider = true,
+    --     }),
+    --   },
+    -- }
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -53,18 +53,18 @@ return {
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
-
-        -- set keybinds
+        --
+        --     -- set keybinds
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-        opts.desc = "Go to declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-        opts.desc = "Show LSP definitions"
-        -- keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-        opts.desc = "Show LSP implementations"
-        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-        opts.desc = "Show LSP type definitions"
-        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+        --     opts.desc = "Go to declaration"
+        --     keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+        --     opts.desc = "Show LSP definitions"
+        --     keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+        --     opts.desc = "Show LSP implementations"
+        --     keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        --     opts.desc = "Show LSP type definitions"
+        --     keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
         opts.desc = "See available code actions"
         keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
         opts.desc = "Smart rename"
@@ -87,8 +87,6 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
@@ -227,12 +225,53 @@ return {
           },
         })
       end,
+
+      ["clangd"] = function()
+        lspconfig["clangd"].setup({
+          capabilities = capabilities,
+          filetypes = { "c", "cpp", "objc", "objcpp" },
+          root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+        })
+      end,
+
+      ["ocamllsp"] = function()
+        lspconfig["ocamllsp"].setup({
+          capabilities = capabilities,
+          filetypes = { "ocaml", "reason" },
+          root_dir = lspconfig.util.root_pattern("dune-project", "dune"),
+        })
+      end,
+
+      ["solc"] = function()
+        lspconfig["solidity"].setup({
+          capabilities = capabilities,
+          filetypes = { "solidity" },
+          root_dir = lspconfig.util.root_pattern("foundry.toml", ".git"),
+        })
+      end,
+
+      ["zls"] = function()
+        lspconfig["zls"].setup({
+          capabilities = capabilities,
+          filetypes = { "zig" },
+          root_dir = lspconfig.util.root_pattern("build.zig", ".git"),
+        })
+      end,
+
+      ["jsonls"] = function()
+        lspconfig["jsonls"].setup({
+          capabilities = capabilities,
+          filetypes = { "json" },
+          root_dir = lspconfig.util.root_pattern(".git"),
+        })
+      end,
     })
-    lspconfig.sui.setup({
-      capabilities = capabilities,
-      cmd = { "move-analyzer" },
-      filetypes = { "move" },
-      root_dir = require("lspconfig.util").root_pattern("Move.toml", ".git"),
-    })
+
+    -- lspconfig.sui.setup({
+    --   capabilities = capabilities,
+    --   cmd = { "move-analyzer" },
+    --   filetypes = { "move" },
+    --   root_dir = require("lspconfig.util").root_pattern("Move.toml", ".git"),
+    -- })
   end,
 }
