@@ -1,3 +1,4 @@
+---@module 'lazy'
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -5,11 +6,72 @@ return {
   ---@type snacks.Config
   opts = {
     animate = {},
+    dashboard = {
+      sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 1 },
+        {
+          pane = 2,
+          icon = " ",
+          desc = "Browse Repo",
+          padding = 1,
+          key = "b",
+          action = function()
+            Snacks.gitbrowse()
+          end,
+        },
+        function()
+          local in_git = Snacks.git.get_root() ~= nil
+          local cmds = {
+            {
+              title = "Open Issues",
+              cmd = "gh issue list -L 3",
+              key = "i",
+              action = function()
+                vim.fn.jobstart("gh issue list --web", { detach = true })
+              end,
+              icon = " ",
+              height = 7,
+            },
+
+            {
+              icon = " ",
+              title = "Open PRs",
+              cmd = "gh pr list -L 3",
+              key = "P",
+              action = function()
+                vim.fn.jobstart("gh pr list --web", { detach = true })
+              end,
+              height = 7,
+            },
+            {
+              icon = " ",
+              title = "Git Status",
+              cmd = "git --no-pager diff --stat -B -M -C",
+              height = 5,
+            },
+            { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          }
+          return vim.tbl_map(function(cmd)
+            return vim.tbl_extend("force", {
+              pane = 2,
+              section = "terminal",
+              enabled = in_git,
+              padding = 1,
+              ttl = 5 * 60,
+              indent = 3,
+            }, cmd)
+          end, cmds)
+        end,
+        { section = "startup" },
+      },
+    },
     bigfile = {},
     picker = {},
     explorer = {},
-    dashboard = {},
-    indent = {},
+    indent = {
+      chunk = { enabled = true },
+    },
     input = {},
     notifier = {},
     quickfile = {},
@@ -18,21 +80,13 @@ return {
   },
 
   keys = {
-    {
-      "n",
-      "<leader>e",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "Find current file in explorer",
-    },
-    {
-      "<leader>e",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "File Explorer",
-    },
+    -- {
+    --   "<leader>e",
+    --   function()
+    --     Snacks.picker.explorer()
+    --   end,
+    --   desc = "File Explorer",
+    -- },
 
     -- Files
     {
@@ -40,7 +94,7 @@ return {
       function()
         Snacks.picker.files()
       end,
-      desc = "Smart Find Files",
+      desc = "Files",
     },
     {
       "<leader>fb",
@@ -209,13 +263,6 @@ return {
       desc = "Buffer Diagnostics",
     },
     {
-      "<leader>sh",
-      function()
-        Snacks.picker.help()
-      end,
-      desc = "Help Pages",
-    },
-    {
       "<leader>sH",
       function()
         Snacks.picker.highlights()
@@ -324,14 +371,14 @@ return {
       desc = "References",
     },
     {
-      "gI",
+      "gi",
       function()
         Snacks.picker.lsp_implementations()
       end,
       desc = "Goto Implementation",
     },
     {
-      "gy",
+      "gt",
       function()
         Snacks.picker.lsp_type_definitions()
       end,
