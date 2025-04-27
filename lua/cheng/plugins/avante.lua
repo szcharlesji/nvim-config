@@ -45,19 +45,33 @@ return {
       hide_in_model_selector = true,
     },
     vendors = {
-      copilot_claude = {
+      copilot_claude_3_7 = {
         __inherited_from = "copilot",
         model = "claude-3.7-sonnet",
       },
-      copilot_claude_thinking = {
+      copilot_claude_3_7_thinking = {
         __inherited_from = "copilot",
         model = "claude-3.7-sonnet-thought",
-        temperature = 1,
-        max_tokens = 20000,
       },
-      copilot_gemini = {
+      copilot_gemini_2_0_flash = {
         __inherited_from = "copilot",
         model = "gemini-2.0-flash-001",
+      },
+      copilot_gemini_2_5_pro = {
+        __inherited_from = "copilot",
+        model = "gemini-2.5-pro",
+      },
+      copilot_openai_o4_mini = {
+        __inherited_from = "copilot",
+        model = "o4-mini",
+      },
+      copilot_openai_4_1 = {
+        __inherited_from = "copilot",
+        model = "gpt-4.1",
+      },
+      copilot_openai_o3_mini = {
+        __inherited_from = "copilot",
+        model = "o3-mini",
       },
     },
     behaviour = {
