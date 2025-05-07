@@ -216,13 +216,7 @@ return {
       ["rust_analyzer"] = function()
         lspconfig["rust_analyzer"].setup({
           capabilities = capabilities,
-          settings = {
-            ["rust-analyzer"] = {
-              checkOnSave = {
-                command = "clippy",
-              },
-            },
-          },
+          root_dir = lspconfig.util.root_pattern("Cargo.toml"),
         })
       end,
 
@@ -263,6 +257,21 @@ return {
           capabilities = capabilities,
           filetypes = { "json" },
           root_dir = lspconfig.util.root_pattern(".git"),
+        })
+      end,
+
+      ["tinymist"] = function()
+        lspconfig["tinymist"].setup({
+          capabilities = capabilities,
+          filetypes = { "typst", "typ" },
+        })
+      end,
+
+      ["volar"] = function()
+        lspconfig["volar"].setup({
+          capabilities = capabilities,
+          filetypes = { "vue" },
+          -- root_dir = lspconfig.util.root_pattern("package.json", "vue.config.js", ".git"),
         })
       end,
     })
