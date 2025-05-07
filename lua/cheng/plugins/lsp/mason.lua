@@ -20,19 +20,36 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tailwindcss",
+        "astro",
+        "bashls",
+        "clangd",
+        "gopls",
         "lua_ls",
-        "ts_ls",
+        "mdx_analyzer",
+        "nil_ls",
+        "ocamllsp",
+        "prismals",
         "pyright",
         "rust_analyzer",
+        "solc",
+        "solidity",
+        "tailwindcss",
+        "tinymist",
+        "ts_ls",
+        "volar",
+        "zls",
       },
       automatic_installation = true,
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
+        "clang-format",
+        "nixpkgs-fmt",
         "prettier",
+        "prettierd",
         "eslint_d",
+        "stylua",
       },
     })
   end,
