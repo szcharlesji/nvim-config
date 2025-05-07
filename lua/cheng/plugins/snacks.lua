@@ -182,6 +182,12 @@ return {
       end,
       desc = "Git Log File",
     },
+    {
+      "<leader>gb",
+      function()
+        Snacks.gitbrowse()
+      end,
+    },
 
     -- Search/grep mappings
     {
