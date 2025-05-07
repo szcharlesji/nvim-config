@@ -50,6 +50,7 @@ return {
         "eslint_d",
         "stylua",
       },
+      automatic_installation = true,
     })
   end,
 }

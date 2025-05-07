@@ -80,13 +80,6 @@ return {
   },
 
   keys = {
-    -- {
-    --   "<leader>e",
-    --   function()
-    --     Snacks.picker.explorer()
-    --   end,
-    --   desc = "File Explorer",
-    -- },
 
     -- Files
     {
@@ -121,6 +114,13 @@ return {
       "<leader>fp",
       function()
         Snacks.picker.projects()
+      end,
+      desc = "Projects",
+    },
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
       end,
       desc = "Projects",
     },
