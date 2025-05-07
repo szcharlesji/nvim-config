@@ -304,13 +304,6 @@ return {
       desc = "Location List",
     },
     {
-      "<leader>sm",
-      function()
-        Snacks.picker.marks()
-      end,
-      desc = "Marks",
-    },
-    {
       "<leader>sM",
       function()
         Snacks.picker.man()
@@ -390,6 +383,7 @@ return {
       end,
       desc = "Goto T[y]pe Definition",
     },
+
     {
       "<leader>ss",
       function()
