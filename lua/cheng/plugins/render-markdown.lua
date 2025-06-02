@@ -9,7 +9,7 @@ return {
       icons = { "●", "○", "◆", "◇" },
       ordered_icons = {},
       left_pad = 0,
-      right_pad = 2,
+      right_pad = 0,
       highlight = "RenderMarkdownBullet",
     },
   },

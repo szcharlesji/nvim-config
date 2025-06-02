@@ -73,16 +73,16 @@ return {
         keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
         opts.desc = "Show line diagnostics"
         keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
-        opts.desc = "Go to previous diagnostic"
-        keymap.set("n", "[d", function()
-          vim.diagnostic.jump({ count = -1, float = true })
-        end, opts)
-        opts.desc = "Go to next diagnostic"
-        keymap.set("n", "]d", function()
-          vim.diagnostic.jump({ count = 1, float = true })
-        end, opts)
-        opts.desc = "Show documentation for what is under cursor"
-        keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+        -- opts.desc = "Go to previous diagnostic"
+        -- keymap.set("n", "[d", function()
+        --   vim.diagnostic.jump({ count = -1, float = true })
+        -- end, opts)
+        -- opts.desc = "Go to next diagnostic"
+        -- keymap.set("n", "]d", function()
+        --   vim.diagnostic.jump({ count = 1, float = true })
+        -- end, opts)
+        -- opts.desc = "Show documentation for what is under cursor"
+        -- keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
       end,

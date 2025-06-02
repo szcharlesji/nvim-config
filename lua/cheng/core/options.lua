@@ -9,6 +9,7 @@ vim.filetype.add({
   },
   filename = {
     [".env"] = "sh",
+    ["Brewfile"] = "sh",
   },
   pattern = {
     ["%.env%.[%w_.-]+"] = "sh",
