@@ -4,83 +4,19 @@ return {
   lazy = true,
   opts = {
     provider = "copilot",
-    -- auto_suggestions_provider = "copilot",
-    copilot = {
-      endpoint = "https://api.githubcopilot.com",
-    },
-    openai = {
-      hide_in_model_selector = true,
-    },
-    claude = {
-      hide_in_model_selector = true,
-    },
-    aihubmix = {
-      hide_in_model_selector = true,
-    },
-    ["aihubmix-claude"] = {
-      hide_in_model_selector = true,
-    },
-    gemini = {
-      hide_in_model_selector = true,
-    },
-    vertex = {
-      hide_in_model_selector = true,
-    },
-    vertex_claude = {
-      hide_in_model_selector = true,
-    },
-    cohere = {
-      hide_in_model_selector = true,
-    },
-    bedrock = {
-      hide_in_model_selector = true,
-    },
-    ["claude-haiku"] = {
-      hide_in_model_selector = true,
-    },
-    ["claude-opus"] = {
-      hide_in_model_selector = true,
-    },
-    ["openai-gpt-4o-mini"] = {
-      hide_in_model_selector = true,
-    },
-    vendors = {
-      copilot_claude_3_7 = {
-        __inherited_from = "copilot",
+    providers = {
+      copilot = {
         model = "claude-3.7-sonnet",
       },
-      copilot_claude_3_7_thinking = {
-        __inherited_from = "copilot",
-        model = "claude-3.7-sonnet-thought",
-      },
-      copilot_gemini_2_0_flash = {
-        __inherited_from = "copilot",
-        model = "gemini-2.0-flash-001",
-      },
-      copilot_gemini_2_5_pro = {
-        __inherited_from = "copilot",
-        model = "gemini-2.5-pro",
-      },
-      copilot_openai_o4_mini = {
-        __inherited_from = "copilot",
-        model = "o4-mini",
-      },
-      copilot_openai_4_1 = {
-        __inherited_from = "copilot",
-        model = "gpt-4.1",
-      },
-      copilot_openai_o3_mini = {
-        __inherited_from = "copilot",
-        model = "o3-mini",
-      },
     },
+    auto_suggestions_provider = "copilot",
     behaviour = {
       auto_suggestions = false,
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = false,
       support_paste_from_clipboard = false,
-      minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+      minimize_diff = true,
     },
   },
   build = "make",
