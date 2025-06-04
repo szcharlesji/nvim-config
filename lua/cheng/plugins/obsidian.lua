@@ -34,6 +34,11 @@ return {
     -- Frontmatter settings
     disable_frontmatter = false,
 
+    -- UI
+    ui = {
+      enable = false,
+    },
+
     -- Image
     ---@param img string
     follow_img_func = function(img)
