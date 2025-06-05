@@ -9,7 +9,6 @@ return {
         model = "claude-3.7-sonnet",
       },
     },
-    auto_suggestions_provider = "copilot",
     behaviour = {
       auto_suggestions = false,
       auto_set_highlight_group = true,
