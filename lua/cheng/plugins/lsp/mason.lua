@@ -1,5 +1,5 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   version = "^1.0.0",
   dependencies = {
     { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
