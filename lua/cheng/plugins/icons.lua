@@ -16,6 +16,16 @@ return {
         },
       },
       override_by_filename = {
+        [".env.example"] = {
+          icon = "",
+          color = "#FBF700",
+          name = "EnvFile",
+        },
+        [".env.local"] = {
+          icon = "",
+          color = "#FBF700",
+          name = "EnvFile",
+        },
         [".env.production"] = {
           icon = "",
           color = "#FBF700",
